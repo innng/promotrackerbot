@@ -6,7 +6,7 @@ authors = []
 
 [tool.poetry.dependencies]
 python = "^3.6"
-python-telegram-bot = "^12.4.2"
+aiogram = "^2.6.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.7.9"
