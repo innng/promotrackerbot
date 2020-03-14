@@ -25,7 +25,8 @@ For git management:
 
 Contributions are on hold for now, since this is a course assignment.
 
-## Package Diagram UML
+## Architecture
+Package Diagram UML
 
 ![UML Package](https://i.imgur.com/TLlKFwL.png)
 
