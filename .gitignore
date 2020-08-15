@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,archlinuxpackages,python,git,direnv
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,archlinuxpackages,python,git,direnv
 
@@ -169,6 +168,7 @@ dmypy.json
 .pytype/
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
