@@ -5,18 +5,12 @@ services:
     ports:
       - 6379:6379
   promotrackerbot:
-    build: .
+    build:
+      context: .
+      args:
+        TELEGRAM_BOT_TOKEN: "$TELEGRAM_TOKEN"
+        REDIS_HOST: "redis"
     ports:
       - 8000:8000
-    environment:
-      TELEGRAM_TOKEN: "$TELEGRAM_TOKEN"
-      REDIS_HOST: redis
     depends_on:
       - redis
-  # tests:
-  #   image: "local/signals-api"
-  #   command: pytest -x --no-cov
-  #   environment:
-  #     REDIS_HOST: redis
-  #   depends_on:
-  #     - redis
