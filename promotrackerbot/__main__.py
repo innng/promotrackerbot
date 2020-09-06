@@ -2,6 +2,8 @@ import os
 
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 from clients.telegram.help import help
+from clients.telegram.add import add
+from clients.telegram.tracklist import tracklist
 
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
@@ -39,6 +41,12 @@ if __name__ == "__main__":
 
     help_handler = CommandHandler("help", help)
     dispatcher.add_handler(help_handler)
+
+    add_handler = CommandHandler("add", add)
+    dispatcher.add_handler(add_handler)
+
+    tracklist_handler = CommandHandler("tracklist", tracklist)
+    dispatcher.add_handler(tracklist_handler)
 
     unknown_handler = MessageHandler(Filters.command, unknown)
     dispatcher.add_handler(unknown_handler)
