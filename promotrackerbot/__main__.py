@@ -1,14 +1,13 @@
 import os
 
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
+from clients.telegram.start import start
 from clients.telegram.help import help
 from clients.telegram.add import add
 from clients.telegram.tracklist import tracklist
 
-TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
-def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="I'm a bot, please talk to me!")
+TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
 def echo(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)

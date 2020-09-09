@@ -70,9 +70,9 @@
 
 
   #### Estória 3
-  **Nome:** Ajuda ao usuário
-  **Como um** usuário do bot
-  **Eu quero** poder visualizar as funcionalidades e comandos do bot
+  **Nome:** Ajuda ao usuário\
+  **Como um** usuário do bot\
+  **Eu quero** poder visualizar as funcionalidades e comandos do bot\
   **Para que** eu possa me orientar na busca e gerência dos produtos que desejo monitorar o preço 
 
   **Tasks:**
