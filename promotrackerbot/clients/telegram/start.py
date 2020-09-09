@@ -19,6 +19,6 @@ def start(update, context):
         text="Good night! Welcome to promobot, the easy solution to track steam games prices")
     context.bot.send_message(chat_id=update.effective_chat.id, text=
         "Please enter the desired option:\n" +
-        "/products to see all the registered products\n" +
+        "/help to see all the options\n" +
         "/add to add a new product\n" +
-        "/help to see all the options")
+        "/tracklist to see all the registered products\n")
