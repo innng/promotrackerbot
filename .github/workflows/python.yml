@@ -1,0 +1,27 @@
+name: Python lint and test
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+          $HOME/.poetry/bin/poetry config virtualenvs.create false
+          $HOME/.poetry/bin/poetry install
+      - name: Lint with flake8
+        run: |
+          $HOME/.poetry/bin/poetry run flake8 . --max-line-length=100 --exclude=.eggs,.git,__pycache__,build,dist,venv
+      - name: Test with pytest
+        run: |
+          $HOME/.poetry/bin/poetry run pytest tests
