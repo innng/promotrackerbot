@@ -9,17 +9,21 @@ from clients.telegram.tracklist import tracklist
 
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
+
 def echo(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+
 
 def caps(update, context):
     text_caps = " ".join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
+
 def unknown(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text="Sorry, I didn't understand that command."
     )
+
 
 if __name__ == "__main__":
     print("running!")
@@ -49,5 +53,5 @@ if __name__ == "__main__":
 
     unknown_handler = MessageHandler(Filters.command, unknown)
     dispatcher.add_handler(unknown_handler)
-    
+
     updater.start_polling()
