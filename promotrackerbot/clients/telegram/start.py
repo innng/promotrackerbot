@@ -33,11 +33,11 @@ def start(update, context):
         text="How it works:\n"
         + "You search for your favorite game in the Steam "
         + "game database with the /add command.\n"
-        + "Set the amount you want to pay for the game and " 
+        + "Set the amount you want to pay for the game and "
         + "the bot will send a message when the game reaches "
         + "the selected or lower price.\n"
         + "You can track how many games do you want.\n"
         + "To view and manage all the games on your wish list, "
         + "enter the command /tracklist.\n"
-        + "To see all the commands in detail, type the command /help",        
+        + "To see all the commands in detail, type the command /help",
     )
