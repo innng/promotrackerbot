@@ -30,14 +30,14 @@ def start(update, context):
         )
     context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text="How it works:\n"
+        text="How it works:\n\n"
         + "You search for your favorite game in the Steam "
-        + "game database with the /add command.\n"
+        + "game database with the /add command.\n\n"
         + "Set the amount you want to pay for the game and "
         + "the bot will send a message when the game reaches "
-        + "the selected or lower price.\n"
-        + "You can track how many games do you want.\n"
+        + "the selected or lower price.\n\n"
+        + "You can track how many games do you want.\n\n"
         + "To view and manage all the games on your wish list, "
-        + "enter the command /tracklist.\n"
+        + "enter the command /tracklist.\n\n"
         + "To see all the commands in detail, type the command /help",
     )
