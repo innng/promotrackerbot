@@ -26,6 +26,7 @@ if today == now.day and 5 <= hour < 12:
 elif today == now.day and 12 <= hour < 17:
     time_of_day = "Good Afternoon! "
 
+
 def test_start():
     # Arrange
     chat_id = 999
