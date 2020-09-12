@@ -2,14 +2,14 @@ from promotrackerbot.clients.telegram.start import start
 from unittest.mock import Mock
 
 import datetime
-import time
 
 now = datetime.datetime.now()
 
 today = now.day
 hour = now.hour
 
-text_instruction=("How it works:\n\n"
+text_instruction = (
+    "How it works:\n\n"
     + "You search for your favorite game in the Steam "
     + "game database with the /add command.\n\n"
     + "Set the amount you want to pay for the game and "
@@ -24,7 +24,8 @@ if today == now.day and 5 <= hour < 12:
     def test_start_morning():
         # Arrange
         chat_id = 999
-        response = ("Good morning! Welcome to promobot, the easy solution to track steam game "
+        response = (
+            "Good morning! Welcome to promobot, the easy solution to track steam game "
             + "prices\n\n" + text_instruction)
 
         update = Mock()
@@ -51,7 +52,8 @@ elif today == now.day and 12 <= hour < 17:
     def test_start_afternoon():
         # Arrange
         chat_id = 999
-        response = ("Good afternoon! Welcome to promobot, the easy solution to track steam game "
+        response = (
+            "Good afternoon! Welcome to promobot, the easy solution to track steam game "
             + "prices\n\n" + text_instruction)
 
         update = Mock()
@@ -77,7 +79,8 @@ elif today == now.day and 17 <= hour < 24:
     def test_start_night():
         # Arrange
         chat_id = 999
-        response = ("Good night! Welcome to promobot, the easy solution to track steam game "
+        response = (
+            "Good night! Welcome to promobot, the easy solution to track steam game "
             + "prices\n\n" + text_instruction)
 
         update = Mock()
@@ -103,7 +106,8 @@ elif today == now.day and 0 <= hour < 5:
     def test_start_dawn():
         # Arrange
         chat_id = 999
-        response = ("Good night! Welcome to promobot, the easy solution to track steam game "
+        response = (
+            "Good night! Welcome to promobot, the easy solution to track steam game "
             + "prices\n\n" + text_instruction)
 
         update = Mock()
