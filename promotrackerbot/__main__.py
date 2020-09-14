@@ -15,11 +15,7 @@ if __name__ == "__main__":
     updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
-    commands = {"start": start,
-                "help": help,
-                "add": add,
-                "tracklist": tracklist
-                }
+    commands = {"start": start, "help": help, "add": add, "tracklist": tracklist}
 
     for command, callback in commands.items():
         handler = CommandHandler(command, callback)
