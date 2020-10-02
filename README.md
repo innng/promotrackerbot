@@ -41,7 +41,7 @@
 
   ## Sprint Planning
 
-  ### 1ª Sprint 
+  ## 1ª Sprint 
 
   #### Estória 1
   **Nome:** Configurar ambiente de desenvolvimento\
@@ -115,7 +115,7 @@
   * Tratar comando `/tracklist` recebido pelo bot (Gabriel)
   * Criar função que envia resposta com a lista de produtos rastreados (Raydan)
   
-	### 2ª Sprint 
+  ## 2ª Sprint 
     
   #### Estória 1
   **Nome:** Modelar banco de dados\
