@@ -19,9 +19,15 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           $HOME/.poetry/bin/poetry config virtualenvs.create false
           $HOME/.poetry/bin/poetry install
+      - name: Install redis
+        run: |
+          sudo apt-get install redis
       - name: Lint with flake8
         run: |
           $HOME/.poetry/bin/poetry run flake8 . --max-line-length=100 --exclude=.eggs,.git,__pycache__,build,dist,venv
       - name: Test with pytest
         run: |
-          $HOME/.poetry/bin/poetry run pytest tests
+          $HOME/.poetry/bin/poetry run pytest --redis-port=23679 tests
+        env:
+          REDIS_HOST: localhost
+          REDIS_PORT: 23679
