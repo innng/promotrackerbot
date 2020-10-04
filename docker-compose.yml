@@ -9,7 +9,8 @@ services:
       context: .
       args:
         TELEGRAM_BOT_TOKEN: "$TELEGRAM_TOKEN"
-        REDIS_HOST: "redis"
+        REDIS_HOST: "$REDIS_HOST"
+        REDIS_PORT: "$REDIS_PORT"
     ports:
       - 8000:8000
     depends_on:
