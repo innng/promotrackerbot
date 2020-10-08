@@ -10,8 +10,6 @@ from clients.telegram.unknown import unknown
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
 if __name__ == "__main__":
-    print("running!")
-
     updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 

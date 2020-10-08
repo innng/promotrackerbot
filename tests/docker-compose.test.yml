@@ -1,0 +1,10 @@
+services:
+  sut:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile.test
+      args:
+        TELEGRAM_BOT_TOKEN: "$TELEGRAM_TOKEN"
+        REDIS_DOCKER_HOST: "$REDIS_HOST"
+        REDIS_DOCKER_PORT: "$REDIS_PORT"
+    command: ["pytest", "tests"]
