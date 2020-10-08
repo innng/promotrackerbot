@@ -16,7 +16,11 @@ class RedisClient(object):
             return
 
         self._redis = redis.Redis(
-            host=self._redis_host, port=self._redis_port, encoding="utf-8", decode_responses=True,
+            host=self._redis_host,
+            port=self._redis_port,
+            encoding="utf-8",
+            decode_responses=True,
+            socket_connect_timeout=1,
         )
 
     def close(self):

@@ -4,13 +4,14 @@ services:
     image: "redis:alpine"
     ports:
       - 6379:6379
-  promotrackerbot:
+  bot:
     build:
       context: .
       args:
         TELEGRAM_BOT_TOKEN: "$TELEGRAM_TOKEN"
-        REDIS_HOST: "$REDIS_HOST"
-        REDIS_PORT: "$REDIS_PORT"
+        REDIS_DOCKER_HOST: "$REDIS_HOST"
+        REDIS_DOCKER_PORT: "$REDIS_PORT"
+    command: ["python", "promotrackerbot"]
     ports:
       - 8000:8000
     depends_on:
