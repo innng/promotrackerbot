@@ -1,6 +1,8 @@
 import time
 import requests
 
+from pprint import pp
+
 url_error = "Error! Malformed URL."
 
 
@@ -85,21 +87,39 @@ def get_game_info(url):
         return url_error
 
     game_info = {}
-
+    game = {}
+    # Verficar se o jogo é FREE **ERRO**
     for appid in api_response:
         game_data = api_response[appid]["data"]
-        game_info["name"] = game_data["name"]
-        game_info["original_price"] = game_data["price_overview"]["initial"]
-        game_info["price"] = game_data["price_overview"]["final"]
-        game_info["price_formated"] = game_data["price_overview"]["final_formatted"]
-        game_info["discount"] = game_data["price_overview"]["discount_percent"]
-        game_info["is_free"] = game_data["is_free"]
 
-    return game_info
+        if game_data.get("is_free") is True:
+            return "Free"
+        else:
+            game_info["name"] = game_data.get("name", None)
+            game_info["image"] = game_data.get("header_image", None)
+            game_info["original_price"] = game_data["price_overview"]["initial"]
+            game_info["price"] = game_data["price_overview"]["final"]
+            game_info["price_formated"] = game_data["price_overview"]["final_formatted"]
+            game_info["discount"] = game_data["price_overview"]["discount_percent"]
+            game_info["is_free"] = game_data["is_free"]
+
+            game[game_data["steam_appid"]] = game_info
+
+    return game
 
 
 # Request error due to a bad url with no appid information
 # print(get_game_info("https://store.steampowered.com/app/Battlefield_4/"))
+# returns: "Error! Malformed URL."
 
 # Well formed url with woking request
-# print(get_game_info("https://store.steampowered.com/app/1238860/Battlefield_4/"))
+# pp(get_game_info("https://store.steampowered.com/app/1238860/Battlefield_4/"))
+# returns: {
+#           'appid': 1238860,
+#           'name': 'Battlefield 4™',
+#           'original_price': 19900,
+#           'price': 19900,
+#           'price_formated': 'R$ 199,00',
+#           'discount': 0,
+#           'is_free': False
+#           }
