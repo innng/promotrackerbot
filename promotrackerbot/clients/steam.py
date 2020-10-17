@@ -102,6 +102,7 @@ def get_game_info(url):
             game_info["price_formated"] = game_data["price_overview"]["final_formatted"]
             game_info["discount"] = game_data["price_overview"]["discount_percent"]
             game_info["is_free"] = game_data["is_free"]
+            game_info["type"] = game_data["type"]
 
             game[game_data["steam_appid"]] = game_info
 
