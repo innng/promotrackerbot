@@ -3,7 +3,7 @@ from promotrackerbot.infra.redis import RedisClient
 
 
 def add(update, context):
-    """"""
+    """Add a game in the user tracklist"""
     if len(context.args) == 0:
         empty_msg_error = "Can't add 'nothing', please type /add <product url>."
         context.bot.send_message(chat_id=update.effective_chat.id, text=empty_msg_error)
