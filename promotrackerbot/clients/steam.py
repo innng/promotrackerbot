@@ -1,7 +1,6 @@
 import time
 import requests
 
-from pprint import pp
 
 url_error = "Error! Malformed URL."
 
