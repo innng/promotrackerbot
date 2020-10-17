@@ -13,7 +13,6 @@ def add(update, context):
 
         game_info = get_game_info(game_url)
         appid = list(game_info.keys())[0]
-        # print(appid, flush=True)
 
         if game_info == "Free":
             answer = "This game is already free!"
@@ -24,26 +23,19 @@ def add(update, context):
 
         redis = RedisClient()
         redis.connect()
-        # print(game_info, flush=True)
 
-        # games = []
-
-        # games.append(game_info)
-
-        # print(game_info, flush=True)
         if redis.exists(chat_id):
             user_id = redis.get(chat_id)
             game_info.update(user_id)
 
         redis.set(chat_id, game_info)
-        # print(game_info, flush=True)
         variavel = redis.get(str(chat_id))
-        # print(variavel, flush=True)
+
         answer = f"Product {variavel[str(appid)]['name']} added!"
+        if variavel[str(appid)]["discount"] > 0:
+            answer += "\nThis game has already a discount!"
 
         redis.close()
-
-        # context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
 
         context.bot.send_photo(
             chat_id=update.effective_chat.id,
