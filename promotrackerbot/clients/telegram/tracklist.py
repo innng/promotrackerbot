@@ -7,9 +7,10 @@ def tracklist(update, context):
     redis.connect()
 
     chat_id = update.effective_chat.id
-    if not redis.exists(str(chat_id)):
+    if not redis.exists(chat_id) or redis.get(chat_id) == {}:
         answer = "No games are being tracked."
         context.bot.send_message(chat_id=chat_id, text=answer)
+        return
 
     game_list = redis.get(str(chat_id))
     # print(game_list, flush=True)
