@@ -1,5 +1,4 @@
 from promotrackerbot.infra.redis import RedisClient
-from promotrackerbot.clients.steam import extract_appid
 from promotrackerbot.clients.telegram.tracklist import tracklist
 
 
