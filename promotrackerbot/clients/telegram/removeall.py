@@ -8,8 +8,6 @@ def removeall(update, context):
 
     chat_id = update.effective_chat.id
 
-    user_tracklist = redis.get(chat_id)
-
     redis.set(chat_id, {})
 
     answer = "Your list was removed."
