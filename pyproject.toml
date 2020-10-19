@@ -10,12 +10,12 @@ aioredis = "^1.3.1"
 python-telegram-bot = "^12.8"
 pytest-redis = "^2.0.0"
 requests = "^2.24.0"
-pytest-flake8 = "^1.0.6"
 black = "^19.10b0"
 flake8 = "^3.8.3"
 pydocstyle = "^5.0.2"
 pytest = "^6.0.1"
 pytest-cov = "^2.10.1"
+pytest-flake8 = "^1.0.6"
 
 [build-system]
 requires = ["poetry>=0.12"]
