@@ -1,4 +1,3 @@
-from promotrackerbot.clients.telegram.tracklist import tracklist
 from promotrackerbot.infra.redis import RedisClient
 
 
