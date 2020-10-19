@@ -12,13 +12,13 @@ def add(update, context):
         game_url = context.args[0]
 
         game_info = get_game_info(game_url)
-        appid = list(game_info.keys())[0]
 
         if game_info == "Free":
             answer = "This game is already free!"
             context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
             return
 
+        appid = list(game_info.keys())[0]
         chat_id = update.effective_chat.id
 
         redis = RedisClient()
@@ -27,7 +27,7 @@ def add(update, context):
         if redis.exists(chat_id):
             user_id = redis.get(chat_id)
             game_info.update(user_id)
-
+        # print(game_info, flush=True)
         redis.set(chat_id, game_info)
         variavel = redis.get(str(chat_id))
 

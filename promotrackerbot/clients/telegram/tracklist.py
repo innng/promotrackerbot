@@ -1,7 +1,29 @@
 from promotrackerbot.infra.redis import RedisClient
 
+# import telegram
+
+
+# def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
+#     menu = [buttons[i : i + n_cols] for i in range(0, len(buttons), n_cols)]
+#     if header_buttons:
+#         menu.insert(0, [header_buttons])
+#     if footer_buttons:
+#         menu.append([footer_buttons])
+#     return menu
+
 
 def tracklist(update, context):
+
+    # button_list = [
+    #     telegram.InlineKeyboardButton("Yes", callback_data="dlc-yes"),
+    #     telegram.InlineKeyboardButton("No", callback_data="dlc-no"),
+    # ]
+    # reply_markup = telegram.InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
+    # context.bot.send_message(
+    #     chat_id=update.effective_chat.id,
+    #     text="Would you like to track the DLCs for this game as well?",
+    #     reply_markup=reply_markup,
+    # )
 
     redis = RedisClient()
     redis.connect()
@@ -21,9 +43,10 @@ def tracklist(update, context):
         if game_list[appid]["discount"] > 0:
             product_list += " - <b>Discount: " + str(game_list[appid]["discount"]) + "% !!</b> "
         else:
-            product_list += " - No discount active."
+            product_list += " - No discount active. "
         store_link = "https://store.steampowered.com/app/" + appid
         product_list += "<a href='" + store_link + "'> Link</a>\n"
+    # print(product_list, flush=True)
 
     answer = "These are the products you are tracking: " + "\n\n" + product_list
 
