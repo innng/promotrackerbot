@@ -8,14 +8,14 @@ def test_add_success(mock_steam, mock_redis):
     # Arrange
     url = "test"
     chat_id = 999
-    name = "test"
+    game = "test"
     appid = "1234"
     image = "image"
-    response = "Product " + name + " added!"
+    response = "Product " + game + " added!"
 
     mock_steam.return_value = {appid: {}}
     redis = mock_redis.return_value
-    redis.get.return_value = {appid: {"discount": 0, "name": name, "image": image}}
+    redis.get.return_value = {appid: {"discount": 0, "name": game, "image": image}}
 
     update = Mock()
     update.effective_chat.id = chat_id
