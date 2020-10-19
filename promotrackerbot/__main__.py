@@ -1,17 +1,15 @@
 import os
 
-from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
+from telegram.ext import CallbackQueryHandler, CommandHandler, Filters, MessageHandler, Updater
 
 from clients.telegram.add import add
+from clients.telegram.callback_query import callback_query_handler
 from clients.telegram.help import help
 from clients.telegram.remove import remove
+from clients.telegram.removeall import removeall
 from clients.telegram.start import start
 from clients.telegram.tracklist import tracklist
 from clients.telegram.unknown import unknown
-
-from telegram.ext import CallbackQueryHandler
-
-from clients.telegram.callback_query import callback_query_handler
 
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 
@@ -19,7 +17,14 @@ if __name__ == "__main__":
     updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
-    commands = {"start": start, "help": help, "add": add, "tracklist": tracklist, "remove": remove}
+    commands = {
+        "start": start,
+        "help": help,
+        "add": add,
+        "tracklist": tracklist,
+        "remove": remove,
+        "removeall": removeall,
+    }
 
     for command, callback in commands.items():
         handler = CommandHandler(command, callback)
