@@ -1,5 +1,6 @@
-from promotrackerbot.clients.telegram.help import help
 from unittest.mock import Mock
+
+from promotrackerbot.clients.telegram.help import help
 
 
 def test_help():

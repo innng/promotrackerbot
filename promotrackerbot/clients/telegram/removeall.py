@@ -1,5 +1,5 @@
-from promotrackerbot.infra.redis import RedisClient
 from promotrackerbot.clients.telegram.tracklist import tracklist
+from promotrackerbot.infra.redis import RedisClient
 
 
 def removeall(update, context):
@@ -14,4 +14,3 @@ def removeall(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
 
     redis.close()
-    tracklist(update, context)
