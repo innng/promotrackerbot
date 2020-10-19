@@ -1,4 +1,4 @@
-from promotrackerbot.clients.steam import get_game_info
+from promotrackerbot.clients.steam import get_game_info, url_error
 from promotrackerbot.infra.redis import RedisClient
 
 
@@ -8,10 +8,13 @@ def add(update, context):
         empty_msg_error = "Can't add 'nothing', please type /add <product url>."
         context.bot.send_message(chat_id=update.effective_chat.id, text=empty_msg_error)
     else:
-
         game_url = context.args[0]
-
         game_info = get_game_info(game_url)
+
+        if game_info == url_error:
+            answer = "The url you tried to add is invalid. Try again."
+            context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
+            return
 
         if game_info == "Free":
             answer = "This game is already free!"
