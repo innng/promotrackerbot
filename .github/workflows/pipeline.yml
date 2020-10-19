@@ -25,3 +25,7 @@ jobs:
       - name: Test with pytest
         run: |
           docker-compose -f tests/docker-compose.test.yml up --build
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
