@@ -17,11 +17,13 @@ def extract_appid(url):
     """
 
     url = url.split("/")
+    appid_index = 0
     if "app" in url:
         appid_index = url.index("app") + 1
         if not url[appid_index].isnumeric():
             return url_error
-
+    else:
+        return url_error
     return url[appid_index]
 
 
