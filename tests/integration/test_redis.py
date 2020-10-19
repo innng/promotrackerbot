@@ -45,3 +45,27 @@ def test_get(redisdb, redis_client, value, expected):
     result = redis_client.get("test")
 
     assert isinstance(result, expected)
+
+
+def test_redis_connected(capsys, redis_client):
+    response = "Already connected.\n"
+    redis_client.connect()
+    captured = capsys.readouterr()
+
+    assert captured.out == response
+
+
+@pytest.mark.parametrize(
+    "method_name, args",
+    [("close", []), ("set", [None, None]), ("get", [None]), ("exists", [None]), ("delete", [None])],
+)
+def test_redis_not_connected(capsys, method_name, args):
+    response = "Not connected.\n"
+
+    redis_client = RedisClient()
+
+    method = getattr(redis_client, method_name)
+    method(*args)
+    captured = capsys.readouterr()
+
+    assert captured.out == response
