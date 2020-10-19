@@ -1,6 +1,9 @@
 from promotrackerbot.clients.telegram.tracklist import tracklist
 from unittest.mock import Mock, patch
 
+from promotrackerbot.clients.telegram.tracklist import tracklist
+from promotrackerbot.infra.redis import RedisClient
+
 
 @patch("promotrackerbot.clients.telegram.tracklist.RedisClient")
 def test_tracklist(mock_redis):
@@ -68,5 +71,7 @@ def test_empty_tracklist(mock_redis):
     tracklist(update, context)
 
     # Assert
+    # print(response, end="\n\n\n\n")
+    # print(result["text"])
     assert result["chat_id"] == chat_id
     assert result["text"] == response
