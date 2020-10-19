@@ -7,7 +7,7 @@ The data coming from the Steam API will
 be added in the Redis database using the
 following pattern:
 
-Each key will be a unique chatid coming from 
+Each key will be a unique chatid coming from
 Telegram itself.
 
 Each chatid will have a list of keys wich will
