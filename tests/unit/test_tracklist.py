@@ -1,9 +1,6 @@
 from promotrackerbot.clients.telegram.tracklist import tracklist
 from unittest.mock import Mock, patch
 
-from promotrackerbot.clients.telegram.tracklist import tracklist
-from promotrackerbot.infra.redis import RedisClient
-
 
 @patch("promotrackerbot.clients.telegram.tracklist.RedisClient")
 def test_tracklist(mock_redis):
