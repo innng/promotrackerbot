@@ -2,6 +2,36 @@ import json
 import os
 import redis
 
+"""Database structure
+The data coming from the Steam API will
+be added in the Redis database using the
+following pattern:
+
+Each key will be a unique chatid coming from 
+Telegram itself.
+
+Each chatid will have a list of keys wich will
+have the game information as its values.
+
+Example:
+
+{
+    "chat_id0123:{
+        "appid789":{
+            "name": "Counter-Strike",
+            "image": "<url to game image>"
+            "original_price": 9999,
+            "price": 8999,
+            "price_formated": "R$ 89,99"
+            "discount": 0
+            "is_free": false
+            "type": "game",
+            "dlc": {}
+        }
+    }
+}
+"""
+
 
 class RedisClient(object):
     def __init__(self):
