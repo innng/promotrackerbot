@@ -38,7 +38,5 @@ def add(update, context):
         redis.close()
 
         context.bot.send_photo(
-            chat_id=update.effective_chat.id,
-            photo=variavel[str(appid)]["image"],
-            caption=answer,
+            chat_id=update.effective_chat.id, photo=variavel[str(appid)]["image"], caption=answer,
         )
