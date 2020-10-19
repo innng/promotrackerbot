@@ -5,7 +5,6 @@ from promotrackerbot.clients.telegram.removeall import removeall
 
 def test_removeall():
     # Arrange
-    url = "https://store.steampowered.com/app/782330/DOOM_Eternal/"
     chat_id = 999
     response = "Your list was removed."
 
